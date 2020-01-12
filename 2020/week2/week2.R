@@ -24,7 +24,9 @@ ggplot(data = temperature_grouped, mapping = aes(x = as.numeric(year), y = city_
   labs(x = "Year",
        y = "Annual mean temperature (celsius)",
        colour = "City") +
-  theme_linedraw()
+  theme_linedraw() +
+  scale_x_discrete(breaks = seq(2010, 2019, 2), limits = seq(2010, 2019, 2)) +
+  ggtitle("Change in recent mean temperature in Australian cities")
 
 
 # Box fill of temperautre. 
