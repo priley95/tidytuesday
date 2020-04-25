@@ -40,6 +40,7 @@ tt_data <- tt_load(2020, week = 4);
 
 ``` r
 data <- tt_data$spotify_songs %>%
+<<<<<<< HEAD
   select(-c(track_id, track_album_id, playlist_id)) %>%
   mutate(track_album_release_date = as.Date(track_album_release_date))
 
@@ -94,4 +95,15 @@ ggplot(data = data, mapping = aes(x = ))
 
 ![](week4_nb_files/figure-gfm/Song%20characteristics-1.png)<!-- -->
 
+=======
+  select(-c(track_id, track_album_id, playlist_id))
+```
+
+## Exploratory Data Analysis
+
+``` r
+#str(data)
+```
+
+>>>>>>> 045fa71365dfbe0971ac2b7f6fe525ce9f4833cc
 ## Music’s popularity over time?
