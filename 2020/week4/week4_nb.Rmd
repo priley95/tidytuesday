@@ -1,6 +1,6 @@
 ---
 title: "#tidytuesday Week 4 2020 - Spotify Songs"
-output: rmarkdown::github_document
+output: github_document
 ---
 [The Spotify Songs dataset](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-01-21/readme.md) contains data on over 30,000 songs available on the streaming service, Spotify. The dataset contains expected variables, such as the track name, artist and album - as well as assigned variables likely ranked by Spotify such as "danceability" and "acousticness". 
 
@@ -12,16 +12,27 @@ library(tidyverse)
 # Data
 tt_data <- tt_load(2020, week = 4); 
 data <- tt_data$spotify_songs %>%
-  select(-c(track_id, track_album_id, playlist_id))
+  select(-c(track_id, track_album_id, playlist_id)) %>%
+  mutate(track_album_release_date = as.Date(track_album_release_date))
 
+# EDA
+data %>%
+  count(playlist_genre)
+
+data %>%
+  count(playlist_subgenre)
 ```
 
-## Exploratory Data Analysis
+## Ideas being considered:
+- Music popularity over time
+  - per genre
 
-```{r EDA}
-#str(data)
+- Difference in song characteristics by genre
 
+```{r Song characteristics}
+names_characteristics <- data[,c(9:20)]
 
+ggplot(data = data, mapping = aes(x = ))
 ```
 
 ## Music's popularity over time?
