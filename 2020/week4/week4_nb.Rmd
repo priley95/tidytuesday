@@ -1,18 +1,27 @@
 ---
 title: "#tidytuesday Week 4 2020 - Spotify Songs"
-output: html_notebook
+output: rmarkdown::github_document
 ---
+[The Spotify Songs dataset](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-01-21/readme.md) contains data on over 30,000 songs available on the streaming service, Spotify. The dataset contains expected variables, such as the track name, artist and album - as well as assigned variables likely ranked by Spotify such as "danceability" and "acousticness". 
 
-This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+```{r Libraries & Data}
+# Libraries
+library(tidytuesdayR)
+library(tidyverse)
 
-Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+# Data
+tt_data <- tt_load(2020, week = 4); 
+data <- tt_data$spotify_songs %>%
+  select(-c(track_id, track_album_id, playlist_id))
 
-```{r}
-plot(cars)
 ```
 
-Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+## Exploratory Data Analysis
 
-When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
+```{r EDA}
+#str(data)
 
-The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+
+```
+
+## Music's popularity over time?
